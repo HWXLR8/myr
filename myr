@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+
+MIRROR_DIR = None # change this
+
+if MIRROR_DIR is None:
+    print("mirror directory is not set, exiting.")
+    sys.exit(1)
+os.makedirs(MIRROR_DIR, exist_ok=True)
+os.chdir(MIRROR_DIR)
+
+with open('repos', 'r') as f:
+    urls = [line.strip() for line in f if line.strip()]
+
+for url in urls:
+    url = url.rstrip('/') # remove trailing /
+    repo = url.split('/')[-1] # repo name
+    repo = repo + ".git" # add .git to match bare repo
+
+    if os.path.isdir(repo): # repo exists, update
+        print("updating " + repo)
+        subprocess.run(["git", "-C", repo, "fetch", "--all", "--prune", "--prune-tags"])
+    else:
+        subprocess.run(["git", "clone", "--mirror", url])
