@@ -6,14 +6,14 @@ import sys
 
 MIRROR_DIR = None # change this
 
+with open('repos', 'r') as f:
+    urls = [line.strip() for line in f if line.strip()]
+
 if MIRROR_DIR is None:
     print("mirror directory is not set, exiting.")
     sys.exit(1)
 os.makedirs(MIRROR_DIR, exist_ok=True)
 os.chdir(MIRROR_DIR)
-
-with open('repos', 'r') as f:
-    urls = [line.strip() for line in f if line.strip()]
 
 for url in urls:
     url = url.rstrip('/') # remove trailing /
