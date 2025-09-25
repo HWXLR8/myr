@@ -3,5 +3,5 @@
 repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 {
     crontab -l 2>/dev/null
-    echo "0 4 * * * cd $repo_dir && ./myr >/dev/null 2>&1"
+    echo "0 4 * * * $repo_dir/myr >> $repo_dir/myr.log 2>&1"
 } | crontab -
