@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import os
 import subprocess
 import sys
@@ -14,6 +15,8 @@ if MIRROR_DIR is None:
     sys.exit(1)
 os.makedirs(MIRROR_DIR, exist_ok=True)
 os.chdir(MIRROR_DIR)
+
+print(datetime.datetime.now())
 
 for url in urls:
     url = url.rstrip('/') # remove trailing /
