@@ -7,8 +7,6 @@ import subprocess
 import sys
 import time
 
-MIRROR_DIR = None # change this
-
 # command line args
 parser = argparse.ArgumentParser()
 parser.add_argument("--daily", action="store_true")
@@ -19,11 +17,12 @@ with open('repos', 'r') as f:
     urls = [line.strip() for line in f if line.strip()]
 
 # check valid mirror directory
-if MIRROR_DIR is None:
-    print("mirror directory is not set, exiting.")
+MYR_DIR = os.environ.get("MYR_DIR")
+if not MYR_DIR:
+    print("MYR_DIR env variable not set, exiting.")
     sys.exit(1)
-os.makedirs(MIRROR_DIR, exist_ok=True)
-os.chdir(MIRROR_DIR)
+os.makedirs(MYR_DIR, exist_ok=True)
+os.chdir(MYR_DIR)
 
 def clone():
     print(datetime.datetime.now())
