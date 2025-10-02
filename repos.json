@@ -1,0 +1,21 @@
+[
+    {"url": "https://github.com/dolphin-emu/dolphin", "desc": "GameCube and Wii emulator"},
+    {"url": "https://github.com/xenia-project/xenia", "desc": "Xbox 360 emulator"},
+    {"url": "https://codeberg.org/yuzu-emu/yuzu", "desc": "Nintendo Switch emulator"},
+    {"url": "https://github.com/HarbourMasters/Shipwright", "desc": "Ship of Harkinian: Ocarina of Time PC port"},
+    {"url": "https://github.com/HarbourMasters/2ship2harkinian", "desc": "2Ship2Harkinian: Majora’s Mask PC port"},
+    {"url": "https://github.com/HarbourMasters/Starship", "desc": "Starship: Star Fox 64 PC port"},
+    {"url": "https://github.com/HarbourMasters/SpaghettiKart", "desc": "SpaghettiKart: Mario Kart 64 PC port"},
+    {"url": "https://github.com/HarbourMasters/OTRExporter", "desc": "Tooling to extract assets from ROMs and build OTR archives for Ship-based ports"},
+    {"url": "https://github.com/HarbourMasters/ZAPDTR", "desc": "Fork of ZAPD for Zelda asset parsing/extraction used in decomp pipelines"},
+    {"url": "https://github.com/HarbourMasters/Torch", "desc": "Generic asset processor for games (resource conversion helper)"},
+    {"url": "https://github.com/zeldaret/oot", "desc": "Decompilation of The Legend of Zelda: Ocarina of Time"},
+    {"url": "https://github.com/zeldaret/mm", "desc": "Decompilation of The Legend of Zelda: Majora’s Mask"},
+    {"url": "https://github.com/zeldaret/tmc", "desc": "Decompilation of The Legend of Zelda: The Minish Cap"},
+    {"url": "https://github.com/zeldaret/botw", "desc": "Decompilation of The Legend of Zelda: Breath of the Wild (Switch v1.5.0)"},
+    {"url": "https://github.com/zeldaret/tp", "desc": "Decompilation of The Legend of Zelda: Twilight Princess (GCN)"},
+    {"url": "https://github.com/zeldaret/tww", "desc": "Decompilation of The Legend of Zelda: The Wind Waker (GCN)"},
+    {"url": "https://github.com/zeldaret/ph", "desc": "Decompilation of The Legend of Zelda: Phantom Hourglass (NDS)"},
+    {"url": "https://github.com/zeldaret/ss", "desc": "Decompilation of The Legend of Zelda: Skyward Sword (Wii)"},
+    {"url": "https://github.com/zeldaret/af", "desc": "Decompilation of Animal Forest (Dōbutsu no Mori, N64)"}
+]

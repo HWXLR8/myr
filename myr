@@ -2,6 +2,7 @@
 
 import argparse
 import datetime
+import json
 import os
 import subprocess
 import sys
@@ -13,8 +14,8 @@ parser.add_argument("--daily", action="store_true")
 args = parser.parse_args()
 
 # read repo list
-with open('repos', 'r') as f:
-    urls = [line.strip() for line in f if line.strip()]
+with open('repos.json', 'r', encoding='utf-8') as f:
+    repos = json.load(f)
 
 # check valid mirror directory
 MYR_DIR = os.environ.get("MYR_DIR")
@@ -27,16 +28,23 @@ os.chdir(MYR_DIR)
 def clone():
     print(datetime.datetime.now())
 
-    for url in urls:
+    for repo in repos:
+        url = repo['url']
         url = url.rstrip('/') # remove trailing /
-        repo = url.split('/')[-1] # repo name
-        repo = repo + ".git" # add .git to match bare repo
+        repo_name = url.split('/')[-1] # repo name
+        repo_name += ".git" # add .git to match bare repo
 
-        if os.path.isdir(repo): # repo exists, update
-            print("updating " + repo)
-            subprocess.run(["git", "-C", repo, "fetch", "--all", "--prune", "--prune-tags"])
+        # clone repo, or update if exists
+        if os.path.isdir(repo_name):
+            print("updating " + repo_name)
+            subprocess.run(["git", "-C", repo_name, "fetch", "--all", "--prune", "--prune-tags"])
         else:
             subprocess.run(["git", "clone", "--mirror", url])
+
+        # update description
+        desc_path = repo_name + "/description"
+        with open(desc_path, 'w') as f:
+            f.write(repo['desc'])
 
 if args.daily:
     while True:
