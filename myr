@@ -37,9 +37,9 @@ def clone():
         # clone repo, or update if exists
         if os.path.isdir(repo_name):
             print("updating " + repo_name)
-            subprocess.run(["git", "-C", repo_name, "fetch", "--all", "--prune", "--prune-tags"])
+            subprocess.run(["git", "-C", repo_name, "fetch", "origin", "--prune", "--prune-tags", "+refs/heads/*:refs/heads/*", "+refs/tags/*:refs/tags/*"])
         else:
-            subprocess.run(["git", "clone", "--mirror", url])
+            subprocess.run(["git", "clone", "--bare", url])
 
         # update description
         desc_path = repo_name + "/description"
